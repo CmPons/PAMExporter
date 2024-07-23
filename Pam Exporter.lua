@@ -18,14 +18,11 @@ end
 local function writePixels(file, sprite)
 	local sprite_image = Image(sprite)
 	for pixelValue in sprite_image:pixels() do
-		file:write(app.pixelColor.rgbaR(pixelValue()))
-		file:write(" ")
-		file:write(app.pixelColor.rgbaG(pixelValue()))
-		file:write(" ")
-		file:write(app.pixelColor.rgbaB(pixelValue()))
-		file:write(" ")
-		file:write(app.pixelColor.rgbaA(pixelValue()))
-		file:write("\n")
+		local r = app.pixelColor.rgbaR(pixelValue())
+		local g = app.pixelColor.rgbaG(pixelValue())
+		local b = app.pixelColor.rgbaB(pixelValue())
+		local a = app.pixelColor.rgbaA(pixelValue())
+		file:write(r .. " " .. g .. " " .. b .. " " .. a .. "\n")
 	end
 end
 
